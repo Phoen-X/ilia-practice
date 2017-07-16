@@ -1,1 +1,1 @@
-# ilia-practice
+Project for setting up study tasks
