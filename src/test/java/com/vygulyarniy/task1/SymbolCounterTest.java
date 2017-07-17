@@ -21,4 +21,6 @@ public class SymbolCounterTest {
     public void shouldFindMostPopularSymbolInText(String text, SymbolStatistics expectedStatistics) throws Exception {
         assertThat(new SymbolCounter().findMostPopularSymbol(text)).isEqualTo(expectedStatistics);
     }
+
+
 }

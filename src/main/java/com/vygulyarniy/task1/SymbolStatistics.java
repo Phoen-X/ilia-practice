@@ -13,4 +13,12 @@ public class SymbolStatistics {
     public String toString() {
         return String.format("%s (%d упоминаний)", symbol, count);
     }
+
+    public boolean equals(Object o){
+        if(o instanceof SymbolStatistics){
+            SymbolStatistics other = (SymbolStatistics)o;
+            return this.symbol == other.symbol && this.count == other.count;
+        }
+        return false;
+    }
 }
