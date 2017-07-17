@@ -1,5 +1,7 @@
 package com.vygulyarniy.task1;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+import sun.net.SocksProxy;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class SymbolCounter {
@@ -36,4 +38,16 @@ public class SymbolCounter {
         SymbolStatistics result = new SymbolStatistics(charWithMaxCount, maxCount);
         return result;
     }
+
+    public static void main(String[] args) {
+        SymbolCounter s = new SymbolCounter();
+                s.findMostPopularSymbol("");
+                s.go();
+    }
+
+    public void go(){
+
+        System.out.println(maxCount+" " + charWithMaxCount);
+    }
+
 }
