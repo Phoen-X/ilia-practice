@@ -14,19 +14,24 @@ public class SymbolCounter {
      * @return информация о самой часто-упоминаемой букве/цифре
      */
     public SymbolStatistics findMostPopularSymbol(String text) {
+        int maxCount=0;
+        char charWithMaxCount=' ';
         char[] charArray = text.toCharArray();
-        ArrayList<SymbolStatistics> statisticsArrayList = new ArrayList<SymbolStatistics>();
         for (int i = 0; i < text.length(); i++) {
             for (int j = 0; j < text.length(); j++) {
                 int n = 0;
                 if (charArray[i] == charArray[j]) {
                     n++;
+                    if(n>maxCount){
+                        maxCount=n;
+                        charWithMaxCount=charArray[i];
+                    }
                 }
-                statisticsArrayList.add(new SymbolStatistics(charArray[i], n));
             }
+
         }
 
-        SymbolStatistics result = new SymbolStatistics(symbol, count);
+        SymbolStatistics result = new SymbolStatistics(charWithMaxCount, maxCount);
         return result;
     }
 }
