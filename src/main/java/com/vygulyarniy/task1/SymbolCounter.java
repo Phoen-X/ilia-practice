@@ -18,36 +18,59 @@ public class SymbolCounter {
      * @return информация о самой часто-упоминаемой букве/цифре
      */
     public SymbolStatistics findMostPopularSymbol(String text) {
+        if (text == null || text.equals("")) {
+            return null;
+        } else {
+            char[] charArray = text.toCharArray();
 
-        char[] charArray = text.toCharArray();
-
-        for (int i = 0; i < text.length(); i++) {
-            int numOfCount = 0;
-            for (int j = 0; j < text.length(); j++) {
-                if (charArray[i] == charArray[j]) {
-                    numOfCount++;
-                    if (numOfCount > maxCount) {
-                        maxCount = numOfCount;
-                        charWithMaxCount = charArray[i];
+            for (int i = 0; i < text.length(); i++) {
+                int numOfCount = 0;
+                for (int j = 0; j < text.length(); j++) {
+                    if (charArray[i] == charArray[j]) {
+                        numOfCount++;
+                        if (numOfCount > maxCount) {
+                            maxCount = numOfCount;
+                            charWithMaxCount = charArray[i];
+                        }
                     }
                 }
+
             }
 
+            SymbolStatistics result = new SymbolStatistics(charWithMaxCount, maxCount);
+
+            return result;
         }
-
-        SymbolStatistics result = new SymbolStatistics(charWithMaxCount, maxCount);
-        return result;
-    }
-
-    public static void main(String[] args) {
-        SymbolCounter s = new SymbolCounter();
-                s.findMostPopularSymbol("");
-                s.go();
-    }
-
-    public void go(){
-
-        System.out.println(maxCount+" " + charWithMaxCount);
     }
 
 }
+
+//    public SymbolStatistics findMostPopularSymbol(String text) {
+//        if (text == null || text.equals("")) {
+//            return null;
+//        } else {
+//            char[] arr = text.toCharArray();
+//
+//            Map<Character, Integer> stats = new HashMap<Character, Integer>();
+//
+//            for (char ch : arr) {
+//                Integer currentStat = stats.get(ch);
+//                if (currentStat == null) {
+//                    currentStat = 0;
+//                }
+//                currentStat++;
+//                stats.put(ch, currentStat);
+//            }
+//
+//            SymbolStatistics maxStat = null;
+//            for (Character character : stats.keySet()) {
+//                int occurences = stats.get(character);
+//                if(maxStat == null || occurences > maxStat.getCount()) {
+//                    maxStat = new SymbolStatistics(character, occurences);
+//                }
+//            }
+//            return maxStat;
+//        }
+//
+//
+//    }
