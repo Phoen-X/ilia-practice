@@ -2,6 +2,10 @@ package com.vygulyarniy.task2;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.HashMap;
+import java.util.InputMismatchException;
+import java.util.Map;
+
 public class DigitsCounter {
 
     /**
@@ -16,24 +20,30 @@ public class DigitsCounter {
 
     char[] numArray = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-    public String digitsCount(String text) {
+    public int digitsCount(String text) {
         if (text == null || text.equals("")) {
-            return "0";
+            return 0;
         } else {
             char[] charArray = text.toCharArray();
-            for (int i = 0; i < text.length(); i++) {
+            for (int i = 0; i < charArray.length; i++) {
                 for (int j = 0; j < numArray.length; j++) {
                     if (charArray[i] == numArray[j]) {
                         countIntDigits++;
                     }
                 }
             }
-            String countStringDigits = Integer.toString(countIntDigits);
-            return countStringDigits;
+            //String countStringDigits = Integer.toString(countIntDigits);
+            return countIntDigits;
         }
     }
 
-    public String digitsCountAllNum() {
-        throw new NotImplementedException();
+    public int digitsCountAllNum(String text) {
+        if (text == null || text.equals("")) {
+            return 0;
+        } else {
+            char[] charArray = text.toCharArray();
+            Map<Character,Integer> allDigitsNum = new HashMap<Character,Integer>();
+
+        }
     }
 }
