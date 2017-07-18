@@ -17,13 +17,11 @@ public class NumbersCounter {
      */
     public int countNumbers(String text) {
         int countNumbers=0;
-        ArrayList<String> ourNumbers = new ArrayList<String>();
 
         Pattern pat = Pattern.compile("[-]?[0-9]+(\\.[0-9]+)?");
         Matcher matcher = pat.matcher(text);
         while (matcher.find()) {
             System.out.println(matcher.group());
-            ourNumbers.add(matcher.group());
             countNumbers++;
         }
         return countNumbers;
