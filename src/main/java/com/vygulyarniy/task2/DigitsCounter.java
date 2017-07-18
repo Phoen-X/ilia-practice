@@ -37,13 +37,32 @@ public class DigitsCounter {
         }
     }
 
-    public int digitsCountAllNum(String text) {
+    public String digitsCountAllNum(String text) {
         if (text == null || text.equals("")) {
-            return 0;
+            return "0";
         } else {
             char[] charArray = text.toCharArray();
             Map<Character,Integer> allDigitsNum = new HashMap<Character,Integer>();
 
+            for(char ch: charArray) {
+                Integer currentStat = allDigitsNum.get(ch);
+                if (currentStat == null) {
+                    currentStat = 0;
+                }
+                currentStat++;
+                allDigitsNum.put(ch, currentStat);
+            }
+            return allDigitsNum.toString();
         }
+    }
+
+    public static void main(String[] args) {
+        DigitsCounter d = new DigitsCounter();
+        d.go();
+    }
+
+    public void go() {
+        String s=digitsCountAllNum("shfj4574sda48415a1d5s1");
+        System.out.println(s);
     }
 }
