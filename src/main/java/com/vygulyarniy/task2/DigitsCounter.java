@@ -12,21 +12,22 @@ public class DigitsCounter {
      * @return кол-во цифр в приведенном тексте
      */
     int countIntDigits=0;
-    String countStringDigits = Integer.toString(countIntDigits);
+
 
     char[] numArray = {'0','1','2','3','4','5','6','7','8','9'};
     public String digitsCount(String text) {
         char[] charArray = text.toCharArray();
         if (text==null || text.equals("")){
-            return countStringDigits;
+            return "0";
         }else
         for (int i=0; i<text.length();i++){
-            for (int j=0; j<charArray.length;j++){
-                if(charArray[j]==numArray[i]){
+            for (int j=0; j<numArray.length;j++){
+                if(charArray[i]==numArray[j]){
                     countIntDigits++;
                 }
             }
         }
+        String countStringDigits = Integer.toString(countIntDigits);
         return countStringDigits;
     }
 
