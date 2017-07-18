@@ -1,5 +1,6 @@
 package com.vygulyarniy.task3;
 
+import java.util.ArrayList;
 import java.util.regex.*;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -15,18 +16,16 @@ public class NumbersCounter {
      * @return кол-во чисел
      */
     public int countNumbers(String text) {
+        int countNumbers=0;
+        ArrayList<String> ourNumbers = new ArrayList<String>();
 
-
-        Pattern pat = Pattern.compile("[-]?[0-9]+(.[0-9]+)?");
+        Pattern pat = Pattern.compile("[-]?[0-9]+(\\.[0-9]+)?");
         Matcher matcher = pat.matcher(text);
         while (matcher.find()) {
             System.out.println(matcher.group());
+            ourNumbers.add(matcher.group());
+            countNumbers++;
         }
-        return 1;
-    }
-
-    public static void main(String[] args) {
-        NumbersCounter nc = new NumbersCounter();
-        nc.countNumbers("Text246s 54895 45 45 41 151");
+        return countNumbers;
     }
 }
