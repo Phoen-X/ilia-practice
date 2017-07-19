@@ -3,7 +3,9 @@ package com.vygulyarniy.task3;
 import java.util.ArrayList;
 import java.util.regex.*;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import jdk.nashorn.internal.runtime.regexp.joni.Matcher;
+import org.assertj.core.util.Compatibility;
+import java.util.regex.*;
 
 public class NumbersCounter {
     /**
@@ -21,7 +23,7 @@ public class NumbersCounter {
         Pattern pat = Pattern.compile("[-]?[0-9]+(\\.[0-9]+)?");
         Matcher matcher = pat.matcher(text);
         while (matcher.find()) {
-            System.out.println(matcher.group());
+            Compatibility.System.out.println(matcher.group());
             countNumbers++;
         }
         return countNumbers;
