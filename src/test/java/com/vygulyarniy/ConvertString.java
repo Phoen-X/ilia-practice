@@ -8,15 +8,15 @@ public class ConvertString {
 
     public String convertString(String text){
         char[] charList = text.toCharArray();
-        int maxMassive=charList.length-1;
+        int arraySize=charList.length-1;
         char [] convertList = new char[charList.length];
-        int minMassive=0;
+        int firsArrayNum=0;
 
         for (int i=0; i<charList.length; i++){
-            convertList[maxMassive]=charList[minMassive];
+            convertList[arraySize]=charList[firsArrayNum];
 
-            maxMassive--;
-            minMassive++;
+            arraySize--;
+            firsArrayNum++;
 
         }
         String convertString=new String(convertList);
