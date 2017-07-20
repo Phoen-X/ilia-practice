@@ -1,9 +1,6 @@
 package com.vygulyarniy.task2;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.HashMap;
-import java.util.InputMismatchException;
 import java.util.Map;
 
 public class DigitsCounter {

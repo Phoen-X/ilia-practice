@@ -1,10 +1,7 @@
 package com.vygulyarniy.task3;
 
-import java.util.ArrayList;
-import java.util.regex.*;
-
-import org.assertj.core.util.Compatibility;
-import java.util.regex.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class NumbersCounter {
     /**
