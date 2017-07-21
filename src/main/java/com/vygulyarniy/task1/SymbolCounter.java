@@ -1,9 +1,5 @@
 package com.vygulyarniy.task1;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-import sun.net.SocksProxy;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 public class SymbolCounter {
 
     int maxCount = 0;
