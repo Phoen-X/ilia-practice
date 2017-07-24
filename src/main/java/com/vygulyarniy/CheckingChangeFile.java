@@ -20,14 +20,18 @@ public class CheckingChangeFile {
     public void chekingChangeFile(String testPath) {
         File path = new File(testPath);
         files = path.listFiles();
-        HashMap<File, Long> oldHash = new HashMap<>();
 
+        HashMap<File, Long> oldHash = new HashMap<>();
         for (File oldFile : files) {
             oldHash.put(oldFile, oldFile.lastModified());
         }
+
         for (; ; ) {
+            File currentPath = new File(testPath);
+            File[] currentFiles = currentPath.listFiles();
+
             HashMap<File, Long> currentHash = new HashMap<>();
-            for (File currentFile : files) {
+            for (File currentFile : currentFiles) {
                 currentHash.put(currentFile, currentFile.lastModified());
             }
 
@@ -35,13 +39,16 @@ public class CheckingChangeFile {
                 if(currentHash.get(oldEntry.getKey())==null){
                     System.out.println(("Файл " + oldEntry.getKey() + " быд удален"));
                     oldHash = currentHash;
+                    break;
                 }
+
             }
 
             for (Map.Entry<File, Long> newEntry: currentHash.entrySet()){
                 if(oldHash.get(newEntry.getKey())==null){
                     System.out.println("Файл " + newEntry.getKey() + " был добавлен");
                     oldHash = currentHash;
+                    break;
                 }
             }
 
@@ -51,6 +58,7 @@ public class CheckingChangeFile {
                         if(!oldHash.get(oldFile).equals(currentHash.get(currentFile))){
                             System.out.println("Изменился файл " + currentFile.getName());
                             oldHash = currentHash;
+                            break;
                         }
                     }
                 }
