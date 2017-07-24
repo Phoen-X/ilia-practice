@@ -34,12 +34,14 @@ public class CheckingChangeFile {
             for (Map.Entry<File,Long> oldEntry : oldHash.entrySet()){
                 if(currentHash.get(oldEntry.getKey())==null){
                     System.out.println(("Файл " + oldEntry.getKey() + " быд удален"));
+                    oldHash = currentHash;
                 }
             }
 
             for (Map.Entry<File, Long> newEntry: currentHash.entrySet()){
                 if(oldHash.get(newEntry.getKey())==null){
                     System.out.println("Файл " + newEntry.getKey() + " был добавлен");
+                    oldHash = currentHash;
                 }
             }
 
