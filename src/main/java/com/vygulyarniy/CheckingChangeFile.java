@@ -27,6 +27,9 @@ public class CheckingChangeFile {
         }
         for (; ; ) {
             HashMap<File, Long> currentHash = new HashMap<>();
+            for (File currentFile : files) {
+                currentHash.put(currentFile, currentFile.lastModified());
+            }
 
             for (Map.Entry<File,Long> oldEntry : oldHash.entrySet()){
                 if(currentHash.get(oldEntry.getKey())==null){
@@ -40,10 +43,6 @@ public class CheckingChangeFile {
                 }
             }
 
-            for (File currentFile : files) {
-                currentHash.put(currentFile, currentFile.lastModified());
-
-            }
             for(File oldFile : oldHash.keySet()){
                 for (File currentFile : currentHash.keySet()){
                     if(currentFile.getName().equals(oldFile.getName())){
