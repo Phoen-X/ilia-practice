@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by IRedko on 21.07.2017.
@@ -20,11 +21,24 @@ public class CheckingChangeFile {
         File path = new File(testPath);
         files = path.listFiles();
         HashMap<File, Long> oldHash = new HashMap<>();
+
         for (File oldFile : files) {
             oldHash.put(oldFile, oldFile.lastModified());
         }
         for (; ; ) {
             HashMap<File, Long> currentHash = new HashMap<>();
+
+            for (Map.Entry<File,Long> oldEntry : oldHash.entrySet()){
+                if(currentHash.get(oldEntry.getKey())==null){
+                    System.out.println(("Файл " + oldEntry.getKey() + " быд удален"));
+                }
+            }
+
+            for (Map.Entry<File, Long> newEntry: currentHash.entrySet()){
+                if(oldHash.get(newEntry.getKey())==null){
+                    System.out.println("Файл " + newEntry.getKey() + " был добавлен");
+                }
+            }
 
             for (File currentFile : files) {
                 currentHash.put(currentFile, currentFile.lastModified());
@@ -40,6 +54,7 @@ public class CheckingChangeFile {
                     }
                 }
             }
+
 
         }
 
