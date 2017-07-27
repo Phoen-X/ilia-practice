@@ -12,7 +12,7 @@ public class FibbonachiNumbers {
      */
     public int giveNumber(int index) {
         if (index <= 0) {
-            return 0;
+            return Integer.parseInt(null);
         }
         if (index < 3) {
             return 1;
@@ -37,6 +37,6 @@ public class FibbonachiNumbers {
 
     public static void main(String[] args) {
         FibbonachiNumbers f = new FibbonachiNumbers();
-        System.out.println(f.giveNumber(10));
+        System.out.println(f.giveNumber(-10));
     }
 }
