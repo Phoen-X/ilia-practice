@@ -27,8 +27,4 @@ public class FibbonachiNumbers {
         }
     }
 
-    public static void main(String[] args) {
-        FibbonachiNumbers f = new FibbonachiNumbers();
-        System.out.println(f.giveNumber(10));
-    }
 }
