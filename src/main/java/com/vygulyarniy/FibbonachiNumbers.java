@@ -14,7 +14,7 @@ public class FibbonachiNumbers {
     public int giveNumber(int index) {
         int result = 0;
         if (index <= 0) {
-            return Integer.parseInt(null);
+            throw new IllegalArgumentException("Задайте индекс больше 0");
         }
         if (index < 3) {
             return 1;
