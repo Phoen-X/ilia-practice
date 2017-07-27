@@ -17,20 +17,12 @@ public class FibbonachiNumbers {
         if (index < 3) {
             return 1;
         } else {
-            int a = 1;
-            int b = 1;
-            int c;
             int[] fibo = new int[index];
-            fibo[0] = a;
-            fibo[1] = b;
-
+            fibo[0]=1;
+            fibo[1]=1;
             for (int i = 2; i < index; i++) {
-                c = a + b;
-                a = b;
-                b = c;
-                fibo[i] = b;
+                fibo[i]=fibo[i-1]+fibo[i-2];
             }
-
             return fibo[index - 1];
         }
     }

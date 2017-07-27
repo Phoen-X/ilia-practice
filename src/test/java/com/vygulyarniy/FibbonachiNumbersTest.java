@@ -31,7 +31,7 @@ public class FibbonachiNumbersTest {
         fibbonaci = new FibbonachiNumbers();
     }
 
-    @Test
+    @Test(dataProvider="testData")
     public void countsFibbonaciNumbers(int index, int fibbonaci) throws Exception {
         assertThat(this.fibbonaci.giveNumber(index)).isEqualTo(fibbonaci);
     }
