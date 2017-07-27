@@ -2,6 +2,7 @@ package com.vygulyarniy.task4;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class StringJoin {
@@ -14,6 +15,20 @@ public class StringJoin {
      * @return
      */
     public String join(List<String>items, char delimiter) {
-        throw new NotImplementedException();
+
+        if(items==null){
+            return null;
+        }
+//        Iterator<String> iter = items.iterator();
+        String joinedString = new String();
+
+        for (String item: items){
+            if(!(item =="")&&!(item==null)){
+                joinedString = joinedString + item + delimiter;
+            }
+        }
+        return joinedString;
     }
+
+
 }
