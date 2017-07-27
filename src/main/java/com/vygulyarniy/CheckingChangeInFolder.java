@@ -1,4 +1,4 @@
-/**
+package com.vygulyarniy; /**
  * Created by IRedko on 20.07.2017.
  */
 
