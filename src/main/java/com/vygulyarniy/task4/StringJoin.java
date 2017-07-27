@@ -1,8 +1,5 @@
 package com.vygulyarniy.task4;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.Iterator;
 import java.util.List;
 
 public class StringJoin {
@@ -16,7 +13,7 @@ public class StringJoin {
      */
     public String join(List<String>items, char delimiter) {
 
-        if(items==null){
+        if (items == null) {
             return null;
         }
 //        Iterator<String> iter = items.iterator();
