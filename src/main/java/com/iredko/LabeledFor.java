@@ -33,6 +33,9 @@ public class LabeledFor {
                     System.out.println("continue inner");
                     continue inner;
                 }
+                if(i==9){
+                    System.out.println("i=9");
+                }
             }
         }
     }
