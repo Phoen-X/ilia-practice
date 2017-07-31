@@ -14,7 +14,7 @@ public class FolderPath {
 
     public static void main(String[] args) {
         FolderPath folderPath = new FolderPath();
-        folderPath.checkFolder("D:\\b");
+        folderPath.checkFolder("D:\\");
     }
 
     public void checkFolder(String testPath) {
