@@ -27,7 +27,7 @@ public class FolderPath2 {
 
                 if (file.isDirectory()) {
                     System.out.println(index + file.getName());
-                    checkFolder(file.getAbsolutePath(), index + index);
+                    checkFolder(file.getAbsolutePath(), index + " ");
 
                 }
             }
