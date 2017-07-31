@@ -10,51 +10,27 @@ import java.util.List;
  * Created by IRedko on 31.07.2017.
  */
 public class FolderPath2 {
-    String a = " ";
 
     public static void main(String[] args) {
         FolderPath2 folderPath = new FolderPath2();
-        folderPath.check("D:\\b");
+        folderPath.checkFolder("D:\\b", " ");
     }
 
-    public ArrayList checkFolder(String testPath) {
+    public void checkFolder(String testPath, String index) {
         File path = new File(testPath);
         File[] files = path.listFiles();
-        ArrayList<File> innerList = new ArrayList<>();
-
         if (files != null) {
             for (File file : files) {
-                innerList.add(file);
-            }
-        }
-        return innerList;
-    }
+                if (file.isFile()) {
+                    System.out.println(index + file.getName());
+                }
 
-    public void check(String path) {
-        File pathAll = new File(path);
-        File[] files = pathAll.listFiles();
-        if (files != null) {
-            for (File file : files) {
-                if (file.isFile())
-                    System.out.println(file.getName());
-            }
-            for (File file : files) {
                 if (file.isDirectory()) {
-                    System.out.println(file.getName());
-                    ArrayList<File> list = checkFolder(file.getAbsolutePath());
-                    for (File inList : list) {
-                        System.out.println(a + inList.getName());
-                        if (inList != null) {
-                            check(inList.getAbsolutePath());
-                        }
-                    }
+                    System.out.println(index + file.getName());
+                    checkFolder(file.getAbsolutePath(), index + index);
+
                 }
             }
         }
     }
 }
-
-
-
-
-
