@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.net.SocketPermission;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by IRedko on 31.07.2017.
@@ -33,7 +34,6 @@ public class FolderPath {
                     filesInDirectory.add(file.getName());
                 }
             }
-
             System.out.println("Файлы в директории " + testPath + " :" + filesInDirectory);
             System.out.println("Папки в директории " + testPath + " :" + folderInDirectory);
         }
