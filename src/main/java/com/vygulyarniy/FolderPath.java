@@ -22,21 +22,19 @@ public class FolderPath {
         File[] files = path.listFiles();
         List<String> filesInDirectory = new ArrayList<>();
         List<String> folderInDirectory = new ArrayList<>();
-        if (files == null) {
-            System.out.println("Данная директория пуста");
-        } else {
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    folderInDirectory.add(file.getName());
-                    checkFolder(file.getAbsolutePath());
-                }
-                if (file.isFile()) {
-                    filesInDirectory.add(file.getName());
-                }
+
+        for (File file : files) {
+            if (file.isDirectory()) {
+                folderInDirectory.add(file.getName());
+                checkFolder(file.getAbsolutePath());
+            }
+            if (file.isFile()) {
+                filesInDirectory.add(file.getName());
             }
         }
-        System.out.println("Файлы в директории "+ testPath+" :"+filesInDirectory );
-        System.out.println("Папки в директории "+ testPath+" :" +folderInDirectory );
+
+        System.out.println("Файлы в директории " + testPath + " :" + filesInDirectory);
+        System.out.println("Папки в директории " + testPath + " :" + folderInDirectory);
     }
 }
 
