@@ -13,7 +13,7 @@ public class FolderPath2 {
 
     public static void main(String[] args) {
         FolderPath2 folderPath = new FolderPath2();
-        folderPath.checkFolder("D:\\b", " ");
+        folderPath.checkFolder("D:\\b", "    ");
     }
 
     public void checkFolder(String testPath, String index) {
@@ -27,7 +27,7 @@ public class FolderPath2 {
 
                 if (file.isDirectory()) {
                     System.out.println(index + file.getName());
-                    checkFolder(file.getAbsolutePath(), index + " ");
+                    checkFolder(file.getAbsolutePath(), index + "   ");
 
                 }
             }
