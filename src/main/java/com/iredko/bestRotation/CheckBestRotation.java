@@ -34,15 +34,15 @@ public class CheckBestRotation {
                 //Если Заклинание доступно и глобал кулдаут разрещает скатить спел, записуем заклинание в ротацию,
                 //включаем глобал запрет, запрет каста текущего заклинани, и фиксируем на промежуток времени на который заклинание недоступно
                 if (gcd.isGcd() && spell.isCanUse()) {
-                    bestRotation = bestRotation + spell.getName()+" ";
+                    bestRotation = bestRotation + spell.getName() + " ";
                     gcd.setGcd(false);
                     spell.setCanUse(false);
-                    spell.setCanUseTime(timeImitation+spell.getCooldown());
+                    spell.setCanUseTime(timeImitation + spell.getCooldown());
                 }
             }
             //Проверяем все заблокированые умения на откат относительно текущего времени
-            for(Spell spell: spells){
-                if(!spell.isCanUse()) {
+            for (Spell spell : spells) {
+                if (!spell.isCanUse()) {
                     if (spell.getCanUseTime() < timeImitation) {
                         spell.setCanUse(true);
                     }
