@@ -4,10 +4,13 @@ package com.iredko.bestRotation;
  * Created by ItsEasy on 01.08.2017.
  */
 public class Spell {
-
+    //Имя Заклинания
     private String name;
+    //Время восстановления заклинания
     private int cooldown;
+    //Доступность заклинания для использования
     private boolean canUse=true;
+    //Переменная необходимая для определения промежутков времени запрета использования заклинания
     private int canUseTime=0;
 
     public Spell(){}

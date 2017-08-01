@@ -6,17 +6,17 @@ import java.util.ArrayList;
  * Created by ItsEasy on 01.08.2017.
  */
 public class Character {
-
-    private Spell[] abilities;
+    //Список доступных заклинаний персонажа
+    private ArrayList<Spell> abilities;
 
     public Character() {
     }
 
-    public Character(Spell[] spells) {
+    public Character(ArrayList<Spell> spells) {
         abilities = spells;
     }
 
-    public Spell[] getAbilities() {
+    public ArrayList<Spell> getAbilities() {
         return abilities;
     }
 }
