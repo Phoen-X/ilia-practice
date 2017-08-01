@@ -9,10 +9,11 @@ public class Spell {
     //Время восстановления заклинания
     private int cooldown;
     //Доступность заклинания для использования
-    private boolean canUse=true;
+    private boolean canUse=true; // TODO это поле не нужно. Оно вычисляемое (canUse = canUseTime == 0)
     //Переменная необходимая для определения промежутков времени запрета использования заклинания
-    private int canUseTime=0;
+    private int canUseTime=0; //TODO хреновое имя переменной. наверное это secondsUntilAvailable
 
+    //TODO кажется мне ты не хочешь иметь возможность создать скил без имени и кулдауна.
     public Spell(){}
 
     public Spell(String name, int cooldown){
