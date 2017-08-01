@@ -13,7 +13,7 @@ public class FolderPath2 {
 
     public static void main(String[] args) {
         FolderPath2 folderPath = new FolderPath2();
-        folderPath.checkFolder("D:\\b", "    ");
+        folderPath.checkFolder("D:\\Downloads", "");
     }
 
     public void checkFolder(String testPath, String index) {
