@@ -36,7 +36,7 @@ public class CheckBestRotationTest {
 
     @Test
     public void gcdBlocksCastFor1Second() throws Exception {
-        Spell testSpell = new Spell("1 sec cooldown spell", 1);
+        Spell testSpell = new Spell("1 sec cooldown spell", 0);
         Character player = new Character(new ArrayList<>(asList(testSpell)));
 
         Map<Spell, Integer> statistics = new CheckBestRotation().checkBestRotation(player, 3);

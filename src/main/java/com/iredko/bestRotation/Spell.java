@@ -11,10 +11,8 @@ public class Spell {
     //Доступность заклинания для использования
     private boolean canUse=true; // TODO это поле не нужно. Оно вычисляемое (canUse = canUseTime == 0)
     //Переменная необходимая для определения промежутков времени запрета использования заклинания
-    private int canUseTime=0; //TODO хреновое имя переменной. наверное это secondsUntilAvailable
+    private int secondsUnitAvailable=0; //TODO хреновое имя переменной. наверное это secondsUntilAvailable
 
-    //TODO кажется мне ты не хочешь иметь возможность создать скил без имени и кулдауна.
-    public Spell(){}
 
     public Spell(String name, int cooldown){
         setName(name);
@@ -34,7 +32,7 @@ public class Spell {
     }
 
     public void setCanUseTime(int canUseTime) {
-        this.canUseTime = canUseTime;
+        this.secondsUnitAvailable = canUseTime;
     }
 
     public String getName() {
@@ -50,6 +48,6 @@ public class Spell {
     }
 
     public int getCanUseTime() {
-        return canUseTime;
+        return secondsUnitAvailable;
     }
 }

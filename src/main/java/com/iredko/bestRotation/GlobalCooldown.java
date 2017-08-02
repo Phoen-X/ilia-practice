@@ -6,13 +6,13 @@ package com.iredko.bestRotation;
  */
 public class GlobalCooldown {
     //Указывает на запрет со стороны глобал кд true - запрет отсутстувует
-    private boolean gcd = true; //TODO так назови эти вещи так чтобы было понятно когда запрет а когда нет. castEnabled?
+    private boolean castEnable = true;
 
-    public void setGcd(boolean gcd) {
-        this.gcd = gcd;
+    public void setCastEnable(boolean castEnable) {
+        this.castEnable = castEnable;
     }
 
-    public boolean isGcd() {
-        return gcd;
+    public boolean isCastEnable() {
+        return castEnable;
     }
 }
