@@ -5,14 +5,23 @@ package com.iredko.bestRotation;
  *
  */
 public class GlobalCooldown {
-    //Указывает на запрет со стороны глобал кд true - запрет отсутстувует
-    private boolean castEnable = true;
 
-    public void setCastEnable(boolean castEnable) {
-        this.castEnable = castEnable;
+    private int canUseTime;
+    private static int cooldownTime=1;
+
+    public void setCanUseTime(int canUseTime) {
+        this.canUseTime = canUseTime;
     }
 
-    public boolean isCastEnable() {
-        return castEnable;
+    public static void setCooldownTime(int cooldownTime) {
+        GlobalCooldown.cooldownTime = cooldownTime;
+    }
+
+    public int getCanUseTime() {
+        return canUseTime;
+    }
+
+    public static int getCooldownTime() {
+        return cooldownTime;
     }
 }

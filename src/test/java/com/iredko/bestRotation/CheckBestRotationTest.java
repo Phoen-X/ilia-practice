@@ -19,8 +19,8 @@ public class CheckBestRotationTest {
 
         Map<Spell, Integer> statisticsFor10Seconds = rotationSimulator.checkBestRotation(player, 5);
 
-        assertThat(statisticsFor10Seconds.get(FIREBALL)).isEqualTo(1);
-        assertThat(statisticsFor10Seconds.get(PYROBLAST)).isEqualTo(1);
+        assertThat(statisticsFor10Seconds.get(FIREBALL)).isEqualTo(2);
+        assertThat(statisticsFor10Seconds.get(PYROBLAST)).isEqualTo(2);
     }
 
     @Test
@@ -36,11 +36,11 @@ public class CheckBestRotationTest {
 
     @Test
     public void gcdBlocksCastFor1Second() throws Exception {
-        Spell testSpell = new Spell("1 sec cooldown spell", 0);
+        Spell testSpell = new Spell("1 sec cooldown spell", 1);
         Character player = new Character(new ArrayList<>(asList(testSpell)));
 
-        Map<Spell, Integer> statistics = new CheckBestRotation().checkBestRotation(player, 3);
+        Map<Spell, Integer> statistics = new CheckBestRotation().checkBestRotation(player, 2);
 
-        assertThat(statistics.get(testSpell)).isEqualTo(2); // мы кастуем на 0 секунде и на 2й. 1я и 3я - гкд
+        assertThat(statistics.get(testSpell)).isEqualTo(3); // мы кастуем на 0 секунде и на 2й. 1я и 3я - гкд
     }
 }

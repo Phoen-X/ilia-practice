@@ -22,52 +22,30 @@ public class CheckBestRotation {
         spells.add(fireball);
         Character mage = new Character(spells);
         CheckBestRotation checkBestRotation = new CheckBestRotation();
-        Map<Spell,Integer> m = checkBestRotation.checkBestRotation(mage, 6);
+        Map<Spell,Integer> m = checkBestRotation.checkBestRotation(mage, 4);
         System.out.println( m.get(fireball));
-
     }
 
     //Метод в котором происходит просчет ротации
-    //TODO void метод печатающий в консоль это клево. Но желательно чтобы результатом была статистика какой скилл сколько раз скастили (см. тест)
-    //TODO переход к тесту на класс - CTRL+SHIFT+T
     public Map<Spell,Integer> checkBestRotation(Character character, int time) { //TODO time должен прийти в каких единицах? Как я должен это понять?
         //Переменная  имитируящая текущее время
-        int timeImitation = 0; //TODO ты сам в комменте пишешь что это текущее время. Назови ее "текущее время" :) "в секундах" естественно, или в чем ты там считаешь
+        int currentTime = 0;
         GlobalCooldown gcd = new GlobalCooldown();
         ArrayList<Spell> spells = character.getAbilities();
         Map<Spell,Integer> resultMap = new HashMap<>();
 
-        //Если текущее время меньше чем время расчета ротации продолжаем расчет
-        //TODO страшного ничего конечно, но цикл int timeImitation = 0; while( timeImitation < time); ....; timeImitation++;
-        //TODO напоминает обычный фор ->   for(int timeImitation = 0; timeImitation < time; timeImitation++) {...}
-        while (timeImitation <= time) {
-            for (Spell spell : spells) {
-                //Если Заклинание доступно и глобал кулдаут разрещает скатить спел, записуем заклинание в ротацию,
-                //включаем глобал запрет, запрет каста текущего заклинани, и фиксируем на промежуток времени на который заклинание недоступно
+        for(currentTime=0;currentTime<=time;currentTime++){
+            for(Spell spell:spells){
                 if(!resultMap.containsKey(spell)) {
                     resultMap.put(spell,0);
                 }
-                if (gcd.isCastEnable() && spell.isCanUse()) {
+                if(spell.getCanUseTime()<=currentTime){
                     bestRotation = bestRotation + spell.getName() + " "; // TODO конкатенация строк в цикле
                     resultMap.put(spell,resultMap.getOrDefault(spell,0)+1);
-                    gcd.setCastEnable(false); //TODO а что если убрать сеттер и вместо него сделать методы void blockCasting() / void unblockCasting() + boolean castingBlocked()? не будет ли тогда понятнее что происходит
-                    spell.setCanUse(false);
-                    spell.setCanUseTime(timeImitation + spell.getCooldown()-1);
+                    spell.setCanUseTime(currentTime+spell.getCooldown());
+                    gcd.setCanUseTime(currentTime+GlobalCooldown.getCooldownTime());
                 }
             }
-            //Проверяем все заблокированые умения на откат относительно текущего времени
-            for (Spell spell : spells) {
-                if (!spell.isCanUse()) {
-                    if (spell.getCanUseTime() <= timeImitation) {
-                        spell.setCanUse(true);
-                    }
-                }
-            }
-            //Добавляем одну секунду к текущему времени
-            timeImitation++;
-            //тк гкд=1сек делаем его доступным после добавления секунды к таймеру(имеет смысл писать гдето в сlass GlobalCooldown и дергать от
-            //туда, нно тк расматриваемая ситуация простая оставим так.
-            gcd.setCastEnable(true);
         }
         System.out.println(bestRotation);
         return resultMap;
