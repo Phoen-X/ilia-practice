@@ -1,5 +1,6 @@
 package com.iredko.bestRotation;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -9,29 +10,35 @@ import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CheckBestRotationTest {
-    private static final Spell FIREBALL = new Spell("Fireball", 3);
-    private static final Spell PYROBLAST = new Spell("Pyroblast", 5);
+    private Spell fireball;
+    private Spell pyroblast;
+
+    @BeforeMethod
+    public void setUp() throws Exception {
+        pyroblast = new Spell("Pyroblast", 5);
+        fireball = new Spell("Fireball", 3);
+    }
 
     @Test
     public void generatesStatisticsOfSpellsUsage() throws Exception {
         CheckBestRotation rotationSimulator = new CheckBestRotation();
-        Character player = new Character(new ArrayList<>(asList(FIREBALL, PYROBLAST)));
+        Character player = new Character(new ArrayList<>(asList(fireball, pyroblast)));
 
         Map<Spell, Integer> statisticsFor10Seconds = rotationSimulator.checkBestRotation(player, 5);
 
-        assertThat(statisticsFor10Seconds.get(FIREBALL)).isEqualTo(2);
-        assertThat(statisticsFor10Seconds.get(PYROBLAST)).isEqualTo(2);
+        assertThat(statisticsFor10Seconds.get(fireball)).isEqualTo(2);
+        assertThat(statisticsFor10Seconds.get(pyroblast)).isEqualTo(2);
     }
 
     @Test
     public void multipleCastsAreByGivenTimeAreRegistered() throws Exception {
         CheckBestRotation rotationSimulator = new CheckBestRotation();
-        Character player = new Character(new ArrayList<>(asList(FIREBALL, PYROBLAST)));
+        Character player = new Character(new ArrayList<>(asList(fireball, pyroblast)));
 
         Map<Spell, Integer> statisticsFor7Seconds = rotationSimulator.checkBestRotation(player, 4);
 
-        assertThat(statisticsFor7Seconds.get(FIREBALL)).isEqualTo(2); // касты в 1 и 4 секунду
-        assertThat(statisticsFor7Seconds.get(PYROBLAST)).isEqualTo(1); // каст в 0 секунду. В 5 секунду
+        assertThat(statisticsFor7Seconds.get(fireball)).isEqualTo(2); // касты в 1 и 4 секунду
+        assertThat(statisticsFor7Seconds.get(pyroblast)).isEqualTo(1); // каст в 0 секунду. В 5 секунду
     }
 
     @Test
