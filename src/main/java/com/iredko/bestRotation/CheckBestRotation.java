@@ -24,6 +24,7 @@ public class CheckBestRotation {
         CheckBestRotation checkBestRotation = new CheckBestRotation();
         Map<Spell,Integer> m = checkBestRotation.checkBestRotation(mage, 4);
         System.out.println( m.get(fireball));
+        System.out.println( m.get(pyroblast));
     }
 
     //Метод в котором происходит просчет ротации
