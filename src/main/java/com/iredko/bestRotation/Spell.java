@@ -39,4 +39,9 @@ public class Spell {
     public int getCanUseTime() {
         return canUseTime;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
