@@ -4,8 +4,6 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static org.testng.Assert.*;
-
 /**
  * Created by ItsEasy on 09.08.2017.
  */

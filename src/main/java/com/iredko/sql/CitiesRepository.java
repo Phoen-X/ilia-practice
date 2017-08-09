@@ -51,6 +51,21 @@ public class CitiesRepository {
         return null;
     }
 
+    void updatePopularity(String name, int newPopularity) {
+        try (Connection connection = getConnection()) {
+
+            PreparedStatement statement = connection.prepareStatement("update city set population = ? where name = ?");
+            statement.setInt(1, newPopularity);
+            statement.setString(2, name);
+
+            statement.executeUpdate();
+            connection.commit();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "power13");
