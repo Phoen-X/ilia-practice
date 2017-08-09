@@ -18,4 +18,12 @@ public class CitiesRepositoryTest {
         System.out.println(all);
 
     }
+
+    @Test
+    public void shouldSearchByName() throws Exception {
+        City city = new CitiesRepository().findByName("Haag0");
+
+        System.out.println(city);
+
+    }
 }

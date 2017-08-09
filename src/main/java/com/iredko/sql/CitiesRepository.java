@@ -10,15 +10,12 @@ import java.util.List;
 public class CitiesRepository {
     public List<City> findAll() {
         List<City> result = new ArrayList<>();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/world",
-                    "root","power13");
+        try (Connection conn = getConnection()) {
 
             PreparedStatement statement = conn.prepareStatement("select * from city");
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
 
@@ -32,6 +29,30 @@ public class CitiesRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-return result;
+        return result;
+    }
+
+    public City findByName(String name) {
+        try (Connection connection = getConnection()) {
+
+            PreparedStatement statement = connection.prepareStatement("select * from city where name = ?");
+            statement.setString(1, name);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return new City(resultSet.getInt("id"), resultSet.getString("name"));
+            } else {
+                return null;
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "power13");
     }
 }
