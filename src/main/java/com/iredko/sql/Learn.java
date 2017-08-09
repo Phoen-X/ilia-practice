@@ -13,20 +13,20 @@ public class Learn {
             System.out.println("World");
         };
 
-        AbstractQuery q = new AbstractQuery("select * from city where name = ?",
-                new ParameterSetter() {
-                    @Override
-                    public void setParams(PreparedStatement stmt) {
-                        stmt.setString(1, "Vasya");
-                    }
-                },
-        new ResultSetParser<City>() {
-
-            @Override
-            public City parse(ResultSet rs) {
-                return new City(rs.getInt("id"), rs.getString("name"));
-            }
-        })
+//        AbstractQuery q = new AbstractQuery("select * from city where name = ?",
+//                new ParameterSetter() {
+//                    @Override
+//                    public void setParams(PreparedStatement stmt) {
+//                        stmt.setString(1, "Vasya");
+//                    }
+//                },
+//        new ResultSetParser<City>() {
+//
+//            @Override
+//            public City parse(ResultSet rs) {
+//                return new City(rs.getInt("id"), rs.getString("name"));
+//            }
+//        })
 
         r.run();
     }
