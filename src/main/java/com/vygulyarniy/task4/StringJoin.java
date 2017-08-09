@@ -1,8 +1,5 @@
 package com.vygulyarniy.task4;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.Iterator;
 import java.util.List;
 
 public class StringJoin {

@@ -9,15 +9,15 @@ public class Spell {
     //Время восстановления заклинания
     private int cooldown;
     //Доступность заклинания для использования
-    private boolean canUse=true;
-    //Переменная необходимая для определения промежутков времени запрета использования заклинания
-    private int canUseTime=0;
-
-    public Spell(){}
+    int canUseTime;
 
     public Spell(String name, int cooldown){
         setName(name);
         setCooldown(cooldown);
+    }
+
+    public void setCanUseTime(int canUseTime) {
+        this.canUseTime = canUseTime;
     }
 
     public void setName(String name) {
@@ -28,14 +28,6 @@ public class Spell {
         this.cooldown = cooldown;
     }
 
-    public void setCanUse(boolean canUse) {
-        this.canUse = canUse;
-    }
-
-    public void setCanUseTime(int canUseTime) {
-        this.canUseTime = canUseTime;
-    }
-
     public String getName() {
         return name;
     }
@@ -44,11 +36,12 @@ public class Spell {
         return cooldown;
     }
 
-    public boolean isCanUse() {
-        return canUse;
-    }
-
     public int getCanUseTime() {
         return canUseTime;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

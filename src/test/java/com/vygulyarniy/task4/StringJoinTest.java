@@ -24,11 +24,13 @@ public class StringJoinTest {
 
     @Test
     public void joinOnEmptyListShouldGiveEmptyString() throws Exception {
-        new StringJoin().join(emptyList(), ' ');
+        String joined = new StringJoin().join(emptyList(), ' ');
+        assertThat(joined).isEqualTo("");
     }
 
     @Test
     public void joinOnNullListShouldGiveEmptyString() throws Exception {
-        new StringJoin().join(null, ',');
+        String joined = new StringJoin().join(null, ',');
+        assertThat(joined).isEqualTo("");
     }
 }
