@@ -8,7 +8,7 @@ public class InterfaceViolation {
         A a = new B();
         a.f();
         System.out.println(a.getClass().getName());
-        if(a instanceof B){
+        if (a instanceof B) {
             B b = (B) a;
             b.g();
         }
