@@ -23,7 +23,7 @@ public class Store extends ArrayList<Aisle> {
             for (Shelf s: a){
                 for (Product p :s){
                     result.append(p);
-                    result.append("\n")
+                    result.append("\n");
                 }
             }
         }
