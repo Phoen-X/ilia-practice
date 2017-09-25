@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Store extends ArrayList<Aisle> {
     private ArrayList<CheckoutStand> chechouts = new ArrayList<>();
-    private Office office = new Office();
+//    private Office office = new Office();
     public Store(int nAisle, int nShelves, int nProduct){
         for(int i=0;i<nAisle;i++ ){
             add(new Aisle(nShelves,nProduct));
