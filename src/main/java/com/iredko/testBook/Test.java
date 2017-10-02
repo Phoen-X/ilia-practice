@@ -39,7 +39,7 @@ public class Test {
         int currentValue = 0;
         int nextCircleCnt = 0;
         int[][] matrix = new int[value][value];
-        for (int z = 0; z < value; z++) {
+        do {
             for (int i = 0; i < value - 2 * nextCircleCnt; i++) {
                 matrix[0 + nextCircleCnt][i + nextCircleCnt] = currentValue + 1;
                 currentValue = currentValue + 1;
@@ -57,7 +57,7 @@ public class Test {
                 currentValue = currentValue + 1;
             }
             nextCircleCnt = nextCircleCnt + 1;
-        }
+        }while (currentValue!=(value*value));
         for (int k = 0; k < value; k++) {
             System.out.println(Arrays.toString(matrix[k]));
         }
@@ -66,7 +66,7 @@ public class Test {
 
     public static void main(String[] args) {
         Test t = new Test();
-        t.go(8);
+        t.circle(6);
     }
 
 }
