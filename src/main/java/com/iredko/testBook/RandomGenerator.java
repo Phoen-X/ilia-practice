@@ -83,8 +83,4 @@ public class RandomGenerator {
             return ((double)trimmed)/100;
         }
     }
-
-
-
-
 }

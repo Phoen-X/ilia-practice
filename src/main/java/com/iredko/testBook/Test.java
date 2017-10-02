@@ -66,7 +66,7 @@ public class Test {
 
     public static void main(String[] args) {
         Test t = new Test();
-        t.circle(6);
+        t.go(6);
     }
 
 }
