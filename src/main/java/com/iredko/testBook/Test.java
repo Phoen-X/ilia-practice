@@ -19,14 +19,14 @@ public class Test {
                 } while (matrix[j][k] == 0);
             }
         }
-        if(value%2==0){
-            System.out.print(matrix[value/2-1][value/2-1] +" "+ matrix[value/2][value/2-1]+" "+matrix[value/2][value/2] );
-            System.out.println(" sum: "+(matrix[value/2-1][value/2-1] + matrix[value/2][value/2-1]+matrix[value/2][value/2]));
+        if (value % 2 == 0) {
+            System.out.print(matrix[value / 2 - 1][value / 2 - 1] + " " + matrix[value / 2][value / 2 - 1] + " " + matrix[value / 2][value / 2]);
+            System.out.println(" sum: " + (matrix[value / 2 - 1][value / 2 - 1] + matrix[value / 2][value / 2 - 1] + matrix[value / 2][value / 2]));
             System.out.println();
         }
-        if(value%2!=0){
-            System.out.print(matrix[value/2][value/2]+" "+ matrix[value/2][value/2-1]+" "+matrix[value/2+1][value/2]);
-            System.out.println(" sum: "+(matrix[value/2][value/2]+ matrix[value/2][value/2-1]+matrix[value/2+1][value/2]));
+        if (value % 2 != 0) {
+            System.out.print(matrix[value / 2][value / 2] + " " + matrix[value / 2][value / 2 - 1] + " " + matrix[value / 2 + 1][value / 2]);
+            System.out.println(" sum: " + (matrix[value / 2][value / 2] + matrix[value / 2][value / 2 - 1] + matrix[value / 2 + 1][value / 2]));
             System.out.println();
         }
 
@@ -62,14 +62,12 @@ public class Test {
         for (int k = 0; k < value; k++) {
             System.out.println(Arrays.toString(matrix[k]));
         }
-
-
     }
 
 
     public static void main(String[] args) {
         Test t = new Test();
-        t.go(3);
+        t.go(8);
     }
 
 }
