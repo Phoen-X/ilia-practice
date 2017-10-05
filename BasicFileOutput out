@@ -1,0 +1,7 @@
+1 (-_-) package com.iredko;
+2 (-_-) public class GameLauncher {
+3 (-_-) 	public static void main (String[] args) {
+4 (-_-) 		GuessGame game = new GuessGame();
+5 (-_-) 		game.startGame();
+6 (-_-) 	}
+7 (-_-) }
