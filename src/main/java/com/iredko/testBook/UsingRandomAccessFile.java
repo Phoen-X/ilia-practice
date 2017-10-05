@@ -15,6 +15,8 @@ public class UsingRandomAccessFile {
         rf.close();
     }
 
+
+
     public static void main(String[] args) throws IOException {
         RandomAccessFile rf = new RandomAccessFile(file, "rw");
         for (int i=0;i<7;i++) {
@@ -23,7 +25,7 @@ public class UsingRandomAccessFile {
         rf.writeUTF("The end of file");
         rf.close();
         display();
-        rf = new RandomAccessFile(file, "rw ");
+        rf = new RandomAccessFile(file, "rw");
         rf.seek(5 * 8);
         rf.writeDouble(47.0001);
         rf.close();
