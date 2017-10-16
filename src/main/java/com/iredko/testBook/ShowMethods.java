@@ -5,7 +5,11 @@ import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 
 /**
+<<<<<<< Updated upstream
  * Created by IRedko on 11.09.2017.
+=======
+ * Created by ItsEasy on 12.09.2017.
+>>>>>>> Stashed changes
  */
 public class ShowMethods {
 
@@ -50,4 +54,5 @@ public class ShowMethods {
             System.out.println("No such class: "+e);
         }
     }
+
 }
