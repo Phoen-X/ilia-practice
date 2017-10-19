@@ -1,6 +1,5 @@
 package com.iredko.testBook.treads;
 
-import java.util.Currency;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
