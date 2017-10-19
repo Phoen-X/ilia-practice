@@ -36,15 +36,15 @@ public class AttemptLocking {
         al.untimed();//True -- блокировка захвачена задачей
         al.timed();//True -- блокировка захвачена задачей
         //Теперь создаем отдельную задачу для установления блокировки
-//        new Thread(){
-//            {setDaemon(true);}
-//            public void run(){
-//                al.lock.lock();
-//                System.out.println("acquired");
-//            }
-//        }.start();
-//        Thread.yield();
-//        al.untimed();
-//        al.timed();
+        new Thread(){
+            {setDaemon(true);}
+            public void run(){
+                al.lock.lock();
+                System.out.println("acquired");
+            }
+        }.start();
+        Thread.yield();
+        al.untimed();
+        al.timed();
     }
 }
