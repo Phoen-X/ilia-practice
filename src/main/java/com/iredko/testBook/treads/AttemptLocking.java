@@ -31,7 +31,7 @@ public class AttemptLocking {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         final AttemptLocking al = new AttemptLocking();
         al.untimed();//True -- блокировка захвачена задачей
         al.timed();//True -- блокировка захвачена задачей
@@ -43,7 +43,7 @@ public class AttemptLocking {
                 System.out.println("acquired");
             }
         }.start();
-        Thread.yield();
+        Thread.sleep(1000);
         al.untimed();
         al.timed();
     }
