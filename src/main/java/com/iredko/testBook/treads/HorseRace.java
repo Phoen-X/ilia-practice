@@ -28,7 +28,7 @@ public class HorseRace {
                 for (Horse horse : horses) {
                     if (horse.getStriders() > FINISH_LINE) {
                         System.out.println(horse + "won!");
-                        exec.shutdown();
+                        exec.shutdownNow();
                         return;
                     }
                 }

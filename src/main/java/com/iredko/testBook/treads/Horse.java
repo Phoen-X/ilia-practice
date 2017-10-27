@@ -26,7 +26,7 @@ public class Horse implements Runnable {
                 synchronized (this) {
                     striders += rand.nextInt(3);//Produces 0,1 or 2
                 }
-                barrier.await()
+                barrier.await();
             }
         } catch (InterruptedException e) {
             //Приемлимый вариант
