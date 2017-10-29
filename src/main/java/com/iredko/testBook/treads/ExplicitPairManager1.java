@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ExplicitPairManager1 extends PairManager{
     private Lock lock = new ReentrantLock();
-    public synchronized void increment() {
+    public void increment() {
         lock.lock();
         try{
             pair.incrementX();
