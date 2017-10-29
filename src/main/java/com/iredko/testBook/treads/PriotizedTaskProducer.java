@@ -33,6 +33,8 @@ public class PriotizedTaskProducer implements Runnable {
             for(int i=0; i<10;i++) {
                 queue.add(new PrioritizedTask(i));
             }
+            //Предохранитель для остановки всех задач
+            queue.add(new PrioritizedTask.EndSentiel(exec));
         } catch (InterruptedException e) {
             //Приемлимый вариант выхода
         }
