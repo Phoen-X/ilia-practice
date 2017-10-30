@@ -9,7 +9,7 @@ public class ExchangerProducer<T> implements Runnable {
     private Generator<T> generator;
     private Exchanger<List<T>> exchanger;
     private List<T> holder;
-    
+
     ExchangerProducer(Exchanger<List<T>> exchg, Generator<T> gen, List<T> holder) {
         exchanger = exchg;
         generator = gen;
@@ -23,6 +23,7 @@ public class ExchangerProducer<T> implements Runnable {
                 for(int i = 0 ; i<ExchangerDemo.size;i++) {
                     holder.add(generator.next());
                 }
+
                 //Заполненный контейнер заменяется пустым
                 holder = exchanger.exchange(holder);
             }
