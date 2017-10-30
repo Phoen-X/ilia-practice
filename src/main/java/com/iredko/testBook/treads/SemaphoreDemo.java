@@ -16,6 +16,7 @@ public class SemaphoreDemo {
         for (int i = 0; i < SIZE; i++) {
             exec.execute(new CheckOutTask<Fat>(pool));
         }
+
         System.out.println("All CheckoutTask created");
         List<Fat> list = new ArrayList<>();
         for (int i = 0; i < SIZE; i++) {
@@ -25,16 +26,14 @@ public class SemaphoreDemo {
             list.add(f);
         }
 
-        Future<?> blocked = exec.submit(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    //Семафор предотвращает лишний вызов checkOut
-                    //поэтому слудующий вызов блокируется;
-                    pool.checkOut();
-                } catch (InterruptedException e) {
-                    System.out.println("checkOut.Interrupted");
-                }
+
+        Future<?> blocked = exec.submit(() -> {
+            try {
+                //Семафор предотвращает лишний вызов checkOut
+                //поэтому слудующий вызов блокируется;
+                pool.checkOut();
+            } catch (InterruptedException e) {
+                System.out.println("checkOut.Interrupted");
             }
         });
         TimeUnit.SECONDS.sleep(2);
